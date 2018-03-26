@@ -14,9 +14,9 @@
                   </div>
                   <ul class="n-ull">
                        <router-link tag="li" class="mine" to="/"><a href="">首页</a></router-link>
-                       <router-link tag="li" class="mine" to="/"><a href="">小册</a></router-link>
-                       <router-link tag="li" class="mine" to="/"><a href="">开源库</a></router-link>
-                       <router-link tag="li" class="mine" to="/"><a href="">活动</a></router-link>
+                       <router-link tag="li" class="mine" to="/book"><a href="">小册</a></router-link>
+                       <router-link tag="li" class="mine" to="/repos"><a href="">开源库</a></router-link>
+                       <router-link tag="li" class="mine" to="/activ"><a href="">活动</a></router-link>
                   </ul>
               </li>
               <!-- 搜索 -->
