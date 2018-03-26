@@ -6,7 +6,9 @@ module.exports = {
     parser: 'babel-eslint'
   },
   env: {
-    browser: true,
+    "browser": true,
+    "commonjs": true,
+    "es6":true
   },
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
@@ -21,7 +23,10 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    // allow async-await
+    'arrow-parens':0,
+    'indent':0,
+    "spaced-comment": 0,//注释风格要不要有空格什么的
+     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'

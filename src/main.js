@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// 样式初始化
+import 'common/stylus/reset.styl'
 
 Vue.config.productionTip = false
 
