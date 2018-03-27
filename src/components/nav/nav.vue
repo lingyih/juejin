@@ -69,10 +69,11 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+@import "../../common/stylus/base.styl";
 .nav
     width 100%
     height 60px
-    background #FFFFFF
+    background $color
     border-bottom 1px solid #F1F1F1
     .n-box
         display flex
@@ -108,7 +109,7 @@ export default {
                             display inline-block
                             width 100%
                         .active
-                            color #317ADE
+                            color $hcolor
             // 搜索
             .n-f
                 flex 1.1
@@ -153,7 +154,7 @@ export default {
                         border-top-left-radius 5px
                         border-bottom-left-radius 5px
                         height 100%
-                        color #fff
+                        color $color
                         border-right  1px solid #fff
                         cursor pointer
                     .n-btn:hover
@@ -174,7 +175,7 @@ export default {
                         padding 5 0
                         font-size 16px
                         color #3b76c5
-                        background-color #fff
+                        background-color $color
                         border 1px solid #ebebeb
                         border-radius 2px
                         box-shadow 0 1px 2px 0 rgba(0,0,0,.05)
