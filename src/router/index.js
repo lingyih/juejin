@@ -4,6 +4,9 @@ import Index from 'components/index/index'
 import Repos from 'components/repos/repos'
 import Book from 'components/book/book'
 import Activ from 'components/activ/activ'
+import Ai from 'components/tab/ai/ai'
+import Android from 'components/tab/android/android'
+import Article from 'components/tab/article/article'
 
 Vue.use(Router)
 
@@ -13,7 +16,25 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: Index
+      component: Index,
+      redirect: '/article',
+      children: [
+        {
+          path: '/ai',
+          name: 'Ai',
+          component: Ai
+        },
+        {
+          path: '/android',
+          name: 'android',
+          component: Android
+        },
+        {
+          path: '/article',
+          name: 'article',
+          component: Article
+        }
+      ]
     },
     // 册子路由
     {
