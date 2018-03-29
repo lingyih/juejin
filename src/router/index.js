@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from 'components/index/index'
+import Windex from 'components/index/windex'
 import Repos from 'components/repos/repos'
 import Book from 'components/book/book'
 import Activ from 'components/activ/activ'
@@ -17,24 +18,30 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index,
-      redirect: '/article',
+      redirect: '/index/article',
       children: [
         {
-          path: '/ai',
+          path: '/index/ai',
           name: 'Ai',
           component: Ai
         },
         {
-          path: '/android',
+          path: '/index/android',
           name: 'android',
           component: Android
         },
         {
-          path: '/article',
+          path: '/index/article',
           name: 'article',
           component: Article
         }
       ]
+    },
+    // 无登录显示路由
+    {
+      path: '/windex',
+      name: 'windex',
+      component: Windex
     },
     // 册子路由
     {

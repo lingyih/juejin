@@ -3,8 +3,8 @@
     <!-- 导航 -->
     <div class="t-n">
       <ul class="t-u">
-        <router-link tag="li" to="/article" class="active">我关注的</router-link>
-        <router-link tag="li" to="/android">Android</router-link>
+        <router-link tag="li" to="/index/article" class="active">我关注的</router-link>
+        <router-link tag="li" to="/index/android">Android</router-link>
         <router-link tag="li" to="/">前端</router-link>
         <router-link tag="li" to="/">iOS</router-link>
         <router-link tag="li" to="/">后端</router-link>
@@ -12,7 +12,7 @@
         <router-link tag="li" to="/">产品</router-link>
         <router-link tag="li" to="/">工具资源</router-link>
         <router-link tag="li" to="/">阅读</router-link>
-        <router-link tag="li" to="/ai">人工智能</router-link>
+        <router-link tag="li" to="/index/ai">人工智能</router-link>
       </ul>
       <div class="t-d"><a href="">标签管理</a></div>
     </div>
@@ -185,7 +185,7 @@ export default {}
         display flex
         img
           height 50px
-          width 50xp
+          width 50px
         .t-d
           display flex
           flex-direction column

@@ -44,6 +44,14 @@
               <li class="n-menu">
                   <div class="n-img"></div>
               </li>
+              <li class="n-d">
+                  <ul>
+                      <li>|</li>
+                      <li>登录</li>
+                      <li class="n-l">.</li>
+                      <li>注册</li>
+                  </ul>
+              </li>
           </ul>
       </nav>
   </div>
@@ -207,4 +215,16 @@ export default {
                    background #ccc
                    margin-top 12px
                    margin-left 5px
+            .n-d
+                position relative
+                display none
+                ul
+                    position absolute
+                    top: 20px
+                    left -60px
+                    display flex
+                    li
+                        flex 1
+                        width 35px
+                        color $hcolor
 </style>
