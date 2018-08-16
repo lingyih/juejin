@@ -49,7 +49,6 @@ export default {}
     margin-top 20px
     .w-wrapper
         flex 1
-        display flex
         height 58px
         margin-right 20px
         background $color
@@ -98,6 +97,7 @@ export default {}
                 background-color $hcolor
                 border 0px
                 color $color
+                cursor pointer
             .w-i
                 color $fcolor
                 img

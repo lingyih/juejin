@@ -1,6 +1,5 @@
 <template>
   <div class="m-header">
-    <h1>小册</h1>
   </div>
 </template>
 
@@ -9,4 +8,12 @@ export default {}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+@import "../../common/stylus/base.styl";
+.m-header
+  height 100px
+  width 960px
+  margin  0 auto
+  margin-top 20px
+  background-color pink
 </style>
+``

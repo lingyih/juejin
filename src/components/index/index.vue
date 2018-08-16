@@ -3,16 +3,16 @@
     <!-- 导航 -->
     <div class="t-n">
       <ul class="t-u">
-        <router-link tag="li" to="/index/article" class="active">我关注的</router-link>
-        <router-link tag="li" to="/index/android">Android</router-link>
-        <router-link tag="li" to="/">前端</router-link>
-        <router-link tag="li" to="/">iOS</router-link>
-        <router-link tag="li" to="/">后端</router-link>
-        <router-link tag="li" to="/">设计</router-link>
-        <router-link tag="li" to="/">产品</router-link>
-        <router-link tag="li" to="/">工具资源</router-link>
-        <router-link tag="li" to="/">阅读</router-link>
-        <router-link tag="li" to="/index/ai">人工智能</router-link>
+        <router-link tag="li" @click.native="tabClicks(1)" :class="{active:isActives===1}" to="/?id=1">我关注的</router-link>
+        <router-link tag="li" @click.native="tabClicks(2)" :class="{active:isActives===2}" to="/?id=2">Android</router-link>
+        <router-link tag="li" @click.native="tabClicks(3)" :class="{active:isActives===3}" to="/?id=3">前端</router-link>
+        <router-link tag="li" @click.native="tabClicks(4)" :class="{active:isActives===4}" to="/?id=4">iOS</router-link>
+        <router-link tag="li" @click.native="tabClicks(5)" :class="{active:isActives===5}" to="/?id=5">后端</router-link>
+        <router-link tag="li" @click.native="tabClicks(6)" :class="{active:isActives===6}" to="/?id=6">设计</router-link>
+        <router-link tag="li" @click.native="tabClicks(7)" :class="{active:isActives===7}" to="/?id=7">产品</router-link>
+        <router-link tag="li" @click.native="tabClicks(8)" :class="{active:isActives===8}" to="/?id=8">工具资源</router-link>
+        <router-link tag="li" @click.native="tabClicks(9)" :class="{active:isActives===9}" to="/?id=9">阅读</router-link>
+        <router-link tag="li" @click.native="tabClicks(10)" :class="{active:isActives===10}" to="/?id=10">人工智能</router-link>
       </ul>
       <div class="t-d"><a href="">标签管理</a></div>
     </div>
@@ -32,21 +32,21 @@
         <!-- 热门 -->
         <div class="t-r">
           <ul class="t-ul1">
-            <router-link tag="li" to="/" class="active">热门</router-link>
+            <router-link tag="li" to="/" @click.native="tabClick(1)" :class="{active:isActive===1}">热门</router-link>
             <li>|</li>
-            <router-link tag="li" to="/">最新</router-link>
+            <router-link tag="li" to="/"  @click.native="tabClick(2)" :class="{active:isActive===2}">最新</router-link>
             <li>|</li>
-            <router-link tag="li" to="/">评论</router-link>
+            <router-link tag="li" to="/"  @click.native="tabClick(3)" :class="{active:isActive===3}">评论</router-link>
           </ul>
           <ul class="t-ul2">
-            <router-link tag="li" to="/">本周最热</router-link>
+            <router-link tag="li" @click.native="tabClick(4)" :class="{active:isActive===4}" to="/">本周最热</router-link>
             <li>.</li>
-            <router-link tag="li" to="/">本月最热</router-link>
+            <router-link tag="li" @click.native="tabClick(5)" :class="{active:isActive===5}" to="/">本月最热</router-link>
             <li>.</li>
-            <router-link tag="li" to="/">历史最热</router-link>
+            <router-link tag="li" @click.native="tabClick(6)" :class="{active:isActive===6}" to="/">历史最热</router-link>
           </ul>
         </div>
-        <router-view></router-view>
+        <Card v-for="(item, index) in list" :key="index" :content="item"></Card>
       </div>
       <!-- 右侧边栏 -->
       <div class="t-menu">
@@ -72,7 +72,128 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {}
+import Card from '../../common/com/card/card'
+import { mapMutations } from 'vuex'
+export default {
+  data () {
+    return {
+      isActive: 1,
+      isActives: 1,
+      list: [
+          {title: '我的关注', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+    }
+  },
+  components: {
+    Card
+  },
+  methods: {
+    ...mapMutations(['tab']),
+    tabClick: function (res) {
+      this.isActive = res
+    },
+    tabClicks: function (res) {
+       this.tab(res)
+      this.isActives = res
+      switch (res) {
+      case 1:
+        this.list = [
+          {title: '我的关注', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 2:
+        this.list = [
+          {title: 'Android', name: 'jer', category: 'VUE', time: '三天前', hot: true, special: false, news: '25', Fabulous: '202'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 3:
+        this.list = [
+          {title: '前端', name: 'peorp', category: 'JS', time: '十天前', hot: false, special: true, news: '2550', Fabulous: '55'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 4:
+        this.list = [
+          {title: 'iOS', name: 'jerry', category: 'adndd', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 5:
+        this.list = [
+          {title: '后端', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 6:
+        this.list = [
+          {title: '设计', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 7:
+        this.list = [
+          {title: '产品', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 8:
+        this.list = [
+          {title: '工具资源', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      case 9:
+        this.list = [
+          {title: '阅读', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+      default:
+        this.list = [
+          {title: '人工智能', name: 'jerry', category: 'CSS', time: '一天前', hot: true, special: true, news: '255', Fabulous: '155'},
+          {title: '啦啦啦啦', name: 'ssry', category: 'VUE', time: '两天前', hot: false, special: true, news: '11', Fabulous: '150'},
+          {title: '少时诵诗书', name: 'saefjerry', category: 'JvarScript', time: '5小时前', hot: true, special: false, news: '25', Fabulous: '151'},
+          {title: '饿饿饿饿', name: 'jerryef', category: 'HTML', time: '1个月前', hot: true, special: true, news: '250', Fabulous: '1588'},
+          {title: '去去去去', name: 'jeree', category: 'PHP', time: '是天前', hot: false, special: false, news: '2', Fabulous: '111'}
+        ]
+        break
+    }
+    }
+  }
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -162,6 +283,8 @@ export default {}
             cursor pointer
           .active
             color $hcolor
+          li:hover
+            color $hcolor
         .t-ul2
           margin-right 15px
           display flex
@@ -171,6 +294,10 @@ export default {}
             line-height 46px
             color $fcolor
             cursor pointer
+          .active
+            color $hcolor
+          li:hover
+            color $hcolor
   .t-menu
     height 520px
     flex 0 0 240px

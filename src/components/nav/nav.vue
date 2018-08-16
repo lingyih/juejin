@@ -13,10 +13,10 @@
                       <span>首页</span>
                   </div>
                   <ul class="n-ull">
-                       <router-link tag="li" class="mine" to="/"><a href="" class="active">首页</a></router-link>
-                       <router-link tag="li" class="mine" to="/book"><a href="">小册</a></router-link>
-                       <router-link tag="li" class="mine" to="/repos"><a href="">开源库</a></router-link>
-                       <router-link tag="li" class="mine" to="/activ"><a href="">活动</a></router-link>
+                       <router-link tag="li" @click.native="tabClick(1)" class="mine" to="/"><a href="" :class="{active:isActive===1}" >首页</a></router-link>
+                       <router-link tag="li" @click.native="tabClick(2)" class="mine" to="/book"><a :class="{active:isActive===2}" href="">小册</a></router-link>
+                       <router-link tag="li" @click.native="tabClick(3)" class="mine" to="/repos"><a :class="{active:isActive===3}" href="">开源库</a></router-link>
+                       <router-link tag="li" @click.native="tabClick(4)" class="mine" to="/activ"><a :class="{active:isActive===4}" href="">活动</a></router-link>
                   </ul>
               </li>
               <!-- 搜索 -->
@@ -61,7 +61,8 @@
 export default {
   data () {
     return {
-      sh: false
+      sh: false,
+      isActive: 1
     }
   },
   methods: {
@@ -71,6 +72,9 @@ export default {
       } else {
         this.sh = false
       }
+    },
+    tabClick: function (res) {
+      this.isActive = res
     }
   }
 }

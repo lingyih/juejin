@@ -5,9 +5,7 @@ import Windex from 'components/index/windex'
 import Repos from 'components/repos/repos'
 import Book from 'components/book/book'
 import Activ from 'components/activ/activ'
-import Ai from 'components/tab/ai/ai'
-import Android from 'components/tab/android/android'
-import Article from 'components/tab/article/article'
+import Wtitle from 'components/title/wtitle'
 
 Vue.use(Router)
 
@@ -17,31 +15,21 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: Index,
-      redirect: '/index/article',
-      children: [
-        {
-          path: '/index/ai',
-          name: 'Ai',
-          component: Ai
-        },
-        {
-          path: '/index/android',
-          name: 'android',
-          component: Android
-        },
-        {
-          path: '/index/article',
-          name: 'article',
-          component: Article
-        }
-      ]
+      component: Index
     },
     // 无登录显示路由
     {
       path: '/windex',
       name: 'windex',
-      component: Windex
+      component: Windex,
+      redirect: 'windex/wtitle',
+      children: [
+        {
+          path: '/windex/wtitle',
+          name: 'wtitle',
+          component: Wtitle
+        }
+      ]
     },
     // 册子路由
     {
