@@ -1,8 +1,9 @@
-# sell
+# 仿掘金项目
+```
+    练习项目
+```
 
-> app
-
-## Build Setup
+## 安装使用方法如下
 
 ``` bash
 # install dependencies
