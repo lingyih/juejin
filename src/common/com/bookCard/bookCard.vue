@@ -49,6 +49,8 @@ export default {
         background-color $color
         border-bottom 1px solid rgba(178,186,194,.15)
         overflow hidden
+        &:hover
+            background-color #f1f1f1
         .content
             width 652px
             height 82px
