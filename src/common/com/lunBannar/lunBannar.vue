@@ -4,16 +4,15 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide" v-for="(item, index) in list" :key="index">
                    <div class="content">
-                       <div class="img" v-show="item.imgShow">
-                           <img :src="item.img" alt="">
-                       </div>
-                       <div class="con">
-                           <div>{{item.title}}</div>
-                           <div>{{item.content}}</div>
-                       </div>
+                       <img :src="item.img" alt="" srcset="">
                    </div>
                 </div>
             </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+                <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </div>
 </template>
@@ -22,7 +21,7 @@
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 export default {
-  name: 'bannar',
+  name: 'lunBannar',
   props: ['list'],
   data () {
     return {
@@ -34,7 +33,16 @@ export default {
   mounted () {
      this.mySwiper = new Swiper('.swiper-container', {
         autoplay: true,
-        loop: true
+        loop: true,
+         // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
      })
   },
   methods: {
@@ -52,23 +60,11 @@ export default {
         &:hover
             background-color #f1f1f1
         .content
-            display flex
+            width 100%
             height 100%
-            .img
-                width 144px
-                height 144px
-                img
-                    width 100%
-                    height 100%
-            .con
-                padding-right 40px
-                font-size 13px
-                height 144px
-                margin-left 50px
-                margin-top 30px
-                :first-child
-                    font-size 20px
-                :last-child
-                    margin-top 10px
-                    color $fcolor
+            border-radius 3px
+            img
+                border-radius 3px
+                width 100%
+                height 100%
 </style>

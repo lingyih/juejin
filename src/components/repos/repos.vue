@@ -1,7 +1,9 @@
 <template>
   <div class="m-header">
     <div class="left">
-      <Bannar :list="list"></Bannar>
+      <div class="bannar">
+        <Bannar :list="list"></Bannar>
+      </div>
       <div class="left-header">
         <div>推荐开源库</div>
         <div class="ding">定制推荐</div>
@@ -183,7 +185,11 @@ export default {
   display flex
   justify-content space-between
   .left
+    .bannar
+      width 700px
+      height 144px
     .left-header
+      border-radius 2px
       margin-top 10px
       width 660px
       height 60px;
