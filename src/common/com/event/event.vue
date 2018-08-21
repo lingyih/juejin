@@ -40,7 +40,7 @@ export default {
         border-radius 3px
         &:hover
             transform translateY(-5px)
-            box-shadow:0px 2px 5px $fcolor; 
+            box-shadow:0px 2px 5px $fcolor
         .img
             width 100%
             height 134px

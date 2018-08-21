@@ -1,6 +1,7 @@
 # 仿掘金项目
 ```
     练习项目
+    服务端渲染模式代码地址  https://github.com/lingyih/nuxt-juejin
 ```
 
 ## 安装使用方法如下

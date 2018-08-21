@@ -1,6 +1,6 @@
 <template>
-  <div class="nav">
-      <nav class="n-box">
+  <div class="nav" >
+      <nav class="n-box" v-if="shows">
           <!-- logo -->
           <router-link tag="a" to="/" class="icon">
             <img src="../../common/image/logo.svg" alt="logo">
@@ -54,6 +54,27 @@
               </li>
           </ul>
       </nav>
+      <nav class="y-box" v-else>
+          <!-- logo -->
+          <router-link tag="a" to="/" class="icon">
+            <img src="../../common/image/logo.svg" alt="logo">
+          </router-link>
+          <ul class="n-ul">
+              <li>
+                  <div class="title">首页</div>
+                  <div class="list">
+                      <div>参数</div>
+                      <div>参数</div>
+                      <div>参数</div>
+                      <div>参数</div>
+                      <div>参数</div>
+                  </div>
+              </li>
+              <li>
+                  登录
+              </li>
+          </ul>
+      </nav>
   </div>
 </template>
 
@@ -62,7 +83,8 @@ export default {
   data () {
     return {
       sh: false,
-      isActive: 1
+      isActive: 1,
+      shows: true
     }
   },
   methods: {
@@ -231,4 +253,34 @@ export default {
                         flex 1
                         width 35px
                         color $hcolor
+    .y-box
+        height 100%
+        display flex
+        box-sizing border-box
+        justify-content space-between
+        align-items center
+        width 100%
+        .icon
+            flex 0
+            // padding-right px
+            img
+                flex 0 0 auto
+                display inline-block
+        .n-ul
+            width 70%
+            display flex
+            justify-content space-between
+            :first-child
+                width 100px
+                .title
+                    margin-top 150px
+                    text-align center
+                .list
+                    position absolute
+                    top 60px
+                    text-align center
+                    div
+                        width 100px
+                        background-color $color
+                        line-height 30px
 </style>

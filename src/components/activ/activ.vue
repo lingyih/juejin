@@ -5,7 +5,7 @@
         <lunBannar :list="list"></lunBannar>
       </div>
       <div class="right">
-        假装这是个日历(｀・ω・´) 
+        假装这是个日历(｀・ω・´)
       </div>
     </div>
     <div class="content">
